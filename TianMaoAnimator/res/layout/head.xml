@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="5dip"
+    android:paddingRight="14dip"
+    android:id="@+id/ids_title_line"
+    android:orientation="horizontal"
+    android:background="@drawable/head_bg"
+    android:layout_height="40dip">
+
+
+    <ImageView
+        android:id="@+id/ids_left_back"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/back_white"
+        android:layout_width="30dip"
+        android:layout_height="30dip" />
+
+    <!--   android:layout_marginLeft="22dip"-->
+    <ImageView
+
+        android:id="@+id/ids_sort"
+        android:layout_marginLeft="30dip"
+        android:layout_toRightOf="@+id/ids_left_back"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/sort_white"
+        android:layout_width="20dip"
+        android:layout_height="20dip" />
+
+
+
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="35dip"
+        android:layout_toRightOf="@+id/ids_sort"
+        android:id="@+id/id_title"
+        android:layout_marginTop="12dip"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/st_string_tianmiao"
+        android:textColor="@color/white"
+        />
+
+
+
+    <View
+
+        android:layout_marginLeft="13dip"
+        android:background="@color/white"
+        android:layout_toRightOf="@+id/id_title"
+        android:layout_centerVertical="true"
+        android:layout_width="1dip"
+        android:layout_height="22.5dip"></View>
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/id_img_rihgt"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/shop_white"
+        android:layout_width="25dip"
+        android:layout_height="25dip" />
+</RelativeLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+
+
+
+
+    <include
+
+        android:id="@+id/ids_first_include"
+        layout="@layout/head"
+        />
+    <!--
+        <com.csdn.view.tx.SearchEditText
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip"
+            android:id="@+id/query"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dip"
+            android:background="@drawable/search_edit_bg"
+            android:drawableLeft="@drawable/search"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:hint="@string/st_string_hint_search"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="@color/search_text_hint_color"
+            android:textSize="16sp"
+            app:drawableDel="@drawable/delete" />
+    -->
+
+
+
+    <android.support.v4.widget.NestedScrollView
+
+        android:id="@+id/ids_scoller"
+        android:layout_below="@+id/ids_first_include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <com.youth.banner.Banner
+
+                android:id="@+id/banner"
+                android:layout_width="fill_parent"
+                android:layout_height="192dip"
+                app:indicator_drawable_selected="@drawable/select"
+                app:indicator_drawable_unselected="@drawable/unselect"
+                app:indicator_height="6dip"
+                app:indicator_width="6dip" />
+
+
+
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:src="@drawable/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.csdn.tianmao.view.SearchEditText
+
+
+        android:id="@+id/query"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:background="@drawable/search_edit_bg"
+        android:drawableLeft="@drawable/search_bar"
+        android:drawablePadding="5dp"
+        android:layout_marginRight="8dip"
+        android:layout_marginLeft="8dip"
+        android:gravity="center_vertical"
+        android:hint="@string/st_string_hint_search"
+        android:imeOptions="actionSearch"
+        android:padding="5dp"
+        android:focusable="false"
+        android:layout_marginTop="45dip"
+        android:textColor="@color/textclolor"
+        android:singleLine="true"
+        android:textSize="14sp"/>
+
+</RelativeLayout>
