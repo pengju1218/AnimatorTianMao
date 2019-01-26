@@ -1,0 +1,4 @@
+#Sat Jan 26 14:22:52 CST 2019
+base.0=D\:\\android\\shili\\ab\\AnimatorTianMao\\TianMaoAnimator\\build\\intermediates\\transforms\\dex\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex

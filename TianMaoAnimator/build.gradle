@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 
 buildscript {
     repositories {
+        mavenCentral()
+        google()
         jcenter()
         google()
     }
@@ -12,6 +14,8 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenCentral()
+        google()
         jcenter()
         google()
     }
@@ -22,6 +26,9 @@ dependencies {
     api   'com.android.support:appcompat-v7:27.0.0'
     implementation 'com.youth.banner:banner:1.4.10'  //最新版本
     implementation 'com.facebook.fresco:fresco:1.11.0'//图片设置
+
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 }
 
 android {
@@ -32,6 +39,8 @@ android {
         minSdkVersion 19
         targetSdkVersion 27
     }
+
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -46,5 +55,24 @@ android {
         }
 
 
+    }
+
+    signingConfigs {
+        config_test {
+            keyAlias 'pengju'
+            keyPassword 'www6727'
+            storeFile file('assets/pengju.jks')
+            storePassword 'www6727'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config_test
+        }
+        debug {
+
+        }
     }
 }

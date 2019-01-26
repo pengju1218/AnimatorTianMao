@@ -1,6 +1,7 @@
 package com.csdn.tianmao;
 
 import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -8,11 +9,14 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
+import android.view.View;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.csdn.tianmao.anim.ViewSizeChangeAnimation;
 import com.csdn.tianmao.util.DensityUtil;
 import com.csdn.tianmao.view.SearchEditText;
@@ -24,7 +28,7 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private ImageView ids_left_back;
     private ImageView ids_sort;
@@ -35,10 +39,16 @@ public class MainActivity extends Activity {
     private SearchEditText query;
     private boolean isShow = true;
     private RelativeLayout ids_title_line;
-    private String imags="https://gw.alicdn.com/tps/TB1sOpSKFXXXXXwXVXXXXXXXXXX-1680-400.jpg,http://img.alicdn.com/tps/TB1dGh3KFXXXXbeXpXXXXXXXXXX-1680-400.jpg," +
+    private String imags = "https://gw.alicdn.com/tps/TB1sOpSKFXXXXXwXVXXXXXXXXXX-1680-400.jpg,http://img.alicdn.com/tps/TB1dGh3KFXXXXbeXpXXXXXXXXXX-1680-400.jpg," +
             "http://gtms04.alicdn.com/tps/i4/TB1dTXUKFXXXXaMXFXXWXkEMFXX-1680-400.png,http://img.alicdn.com/tps/TB1dGh3KFXXXXbeXpXXXXXXXXXX-1680-400.jpg" +
             "http://gtms04.alicdn.com/tps/i4/TB1dTXUKFXXXXaMXFXXWXkEMFXX-1680-400.png,http://gtms01.alicdn.com/tps/i1/TB1pY0VKFXXXXb6XFXXgoUDMFXX-1680-400.jpg";
-  private float startY,startY2;
+    private float startY, startY2;
+    private ImageView ids_first_img;
+    private Button show1;
+    private Button hide;
+
+    //View是否显示的标志
+    boolean show = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +68,7 @@ public class MainActivity extends Activity {
         query = (SearchEditText) findViewById(R.id.query);
 
         startY = query.getY();
-        startY2 =DensityUtil.dip2px(this,40);
+        startY2 = DensityUtil.dip2px(this, 40);
         ids_scoller = (NestedScrollView) findViewById(R.id.ids_scoller);
         ids_title_line = (RelativeLayout) findViewById(R.id.ids_first_include);
         ArrayList list = new ArrayList(Arrays.asList(imags.split(",")));
@@ -99,8 +109,49 @@ public class MainActivity extends Activity {
             }
 
         });
+        ids_first_img = (ImageView) findViewById(R.id.ids_first_img);
+        //Uri uri = Uri.parse((String) "http://img.alicdn.com/tps/TB1dGh3KFXXXXbeXpXXXXXXXXXX-1680-400.jpg");
+
+        Glide.with(this).load("http://img.alicdn.com/tps/TB1dGh3KFXXXXbeXpXXXXXXXXXX-1680-400.jpg").into(ids_first_img);
+
+
+
+        show1 = (Button) findViewById(R.id.show1);
+        show1.setOnClickListener(this);
+        hide = (Button) findViewById(R.id.hide);
+        hide.setOnClickListener(this);
+
     }
 
+
+    public void show(){
+
+        //属性动画对象
+        ValueAnimator va;
+        if (show) {
+            //显示view，高度从0变到height值
+            va = ValueAnimator.ofInt(0, 300);
+            show=false;
+        } else {
+            //隐藏view，高度从height变为0
+            va = ValueAnimator.ofInt(300, 0);
+            show=true;
+        }
+        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                //获取当前的height值
+                int h = (Integer) valueAnimator.getAnimatedValue();
+                //动态更新view的高度
+                ids_first_img.getLayoutParams().height = h;
+                ids_first_img.requestLayout();
+            }
+        });
+        va.setDuration(1000);
+        //开始动画
+        va.start();
+
+    }
     public void initIcon() {
         ids_left_back.setImageResource(R.drawable.back_black);
         ids_sort.setImageResource(R.drawable.sort_black);
@@ -114,6 +165,19 @@ public class MainActivity extends Activity {
         id_img_rihgt.setImageResource(R.drawable.shop_white);
         ids_title_line.setBackgroundResource(R.drawable.head_bg);
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.show1:
+                show();
+                break;
+            case R.id.hide:
+                show();
+                break;
+        }
+    }
+
     class GlideImageLoader extends ImageLoader {
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {

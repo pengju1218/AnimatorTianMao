@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\android\shili\ab\AnimatorTianMao\TianMaoAnimator\assets"><file name="pengju.jks" path="D:\android\shili\ab\AnimatorTianMao\TianMaoAnimator\assets\pengju.jks"/></source><source path="D:\android\shili\ab\AnimatorTianMao\TianMaoAnimator\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="D:\android\shili\ab\AnimatorTianMao\TianMaoAnimator\src\release\assets"/></dataSet></merger>
